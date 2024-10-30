@@ -1,8 +1,8 @@
 
 
 import { createStackNavigator } from '@react-navigation/stack';
-import SplashScreen from './src/pages/SplashScreen';
-import Home from './src/pages/Home';
+import SplashScreen from './src/pages/Splash/SplashScreen';
+import Home from './src/pages/Home/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { ApiProvider } from '@reduxjs/toolkit/query/react';
 import { store } from './src/redux/store';

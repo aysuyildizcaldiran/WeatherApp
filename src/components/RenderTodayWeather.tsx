@@ -42,11 +42,14 @@ const RenderTodayWeather = ({ title, heat, date }: { title?: string; heat?: stri
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center', justifyContent: 'space-around'
+        alignItems: 'center',
+        flex:1,
+        justifyContent: 'space-around',
     },
     weatherCard: {
         flexDirection: 'column',
         width: Dimensions.get('window').width / 4,
+        height:Dimensions.get('window').height / 4,
         marginHorizontal: 5,
         alignItems: 'center',
         justifyContent: 'space-between',

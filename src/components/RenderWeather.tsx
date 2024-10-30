@@ -41,7 +41,7 @@ const RenderWeather = ({ title }: { title?: string }) => {
                                              </View>
                                              <View style={{ flexDirection: 'row', height: height / 6, alignItems: 'center', justifyContent: 'space-between' }}>
                                                             <Image source={weatherImage} resizeMode='cover' style={{ width: '50%', height: '100%' }} />
-                                                            <Text style={{ color: colors.black, fontWeight: '500', fontSize: 18 }}>{weatherData?.temp_c}°C</Text>
+                                                            <Text style={{ color: colors.black, fontWeight: '500', fontSize: 18 }}>{Math.floor(weatherData?.temp_c)}°C</Text>
                                              </View>
                               </View>
                )
