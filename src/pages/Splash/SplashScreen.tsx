@@ -10,29 +10,29 @@ const SplashScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <ImageBackground 
-      source={require('../../assets/img/background.png')} 
+    <ImageBackground
+      source={require('../../assets/img/background.png')}
       style={styles.container}
     >
       <StatusBar barStyle="light-content" translucent />
       <SafeAreaView />
-      
+
       <View style={styles.logoContainer}>
-        <Image 
-          source={require('../../assets/img/logo.png')} 
-          resizeMode="contain" 
+        <Image
+          source={require('../../assets/img/logo.png')}
+          resizeMode="contain"
           style={styles.logo}
         />
       </View>
-      
+
       <View style={styles.splashContent}>
         <Text style={styles.title}>Weather App</Text>
         <Text style={styles.description}>
-        {"Enter your name and location permission and enjoy the app!"}
+          {"Enter your name and location permission and enjoy the app!"}
         </Text>
-        <View style={styles.buttonWrapper}> 
-          <TouchableOpacity 
-            style={styles.navigateButton} 
+        <View style={styles.buttonWrapper}>
+          <TouchableOpacity
+            style={styles.navigateButton}
             onPress={() => navigation.navigate('Home')}
           >
             <AntDesign name="arrowright" size={35} color="white" />

@@ -9,7 +9,6 @@ const RenderTodayWeather = ({ title, heat, date }: { title?: string; heat?: stri
     const [weatherImage, setWeatherImage] = useState<any>(null);
 
     const day = Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(new Date(date).getTime());
-
     useEffect(() => {
         const weatherImages: { [key: string]: any } = {
             Sunny: require('../assets/img/sunny.png'),
