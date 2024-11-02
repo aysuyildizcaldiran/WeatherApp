@@ -1,79 +1,70 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🌤 Weather App
 
-# Getting Started
+Bu proje, kullanıcıya farklı şehirlerdeki hava durumu bilgilerini sunan bir **React Native** uygulamasıdır. Veriler **WeatherAPI** kullanılarak çekilmiştir. Uygulama, kullanıcı deneyimini geliştirmek için **Redux Toolkit**, **Axios** ve çeşitli React hook yapılarıyla TypeScript kullanılarak geliştirilmiştir.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## 📸 Ekran Görüntüleri
+<img src="https://github.com/user-attachments/assets/df29eb95-8ff5-4dc4-a257-a19271c9552c" alt="Simulator Screenshot - iPhone 15 Pro - 2024-07-20 at 18 38 41" width="200"/>
+<img src="https://github.com/user-attachments/assets/24e76472-c71f-4afd-9682-8d70b1c15d86" alt="Simulator Screenshot - iPhone 15 Pro - 2024-07-20 at 18 38 41" width="200"/>
 
-## Step 1: Start the Metro Server
+<img src="https://github.com/user-attachments/assets/d5d529f2-69ed-4c92-8266-64ffaf754ac8" alt="Simulator Screenshot - iPhone 15 Pro - 2024-07-20 at 18 38 41" width="200"/>
+<img src="https://github.com/user-attachments/assets/aa887cf9-fb26-42da-af57-6ed4937414b9" alt="Simulator Screenshot - iPhone 15 Pro - 2024-07-20 at 18 38 41" width="200"/>
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## 🚀 Özellikler
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **Güncel Hava Durumu**: Seçili şehirlerin anlık hava durumu gösterilir.
+- **Diğer Şehirlerin Hava Durumu**: Farklı şehirlerin hava durumu kartlarla gösterilir.
+- **Günlük Tahminler**: Günlük sıcaklık ve hava durumu bilgisi ikonlarla kullanıcıya sunulur.
+- **Kullanıcı Deneyimi**: Dinamik olarak değişen şehir bilgileri ve hoş bir arayüz.
 
-```bash
-# using npm
-npm start
+## 🛠 Kullanılan Teknolojiler
 
-# OR using Yarn
-yarn start
-```
+- **React Native**: Mobil uygulama geliştirme.
+- **TypeScript**: Güvenli ve okunabilir kod için.
+- **Redux Toolkit**: Global state yönetimi için.
+- **Axios**: API isteklerini yönetmek için.
+- **React Hooks (useCallback, useEffect, useState)**: Fonksiyonel bileşenlerde durumu yönetmek için.
+  
+## 📍 Konumdan Şehir Bilgisi Alma
 
-## Step 2: Start your Application
+Uygulama, kullanıcının konum bilgilerini alarak otomatik olarak şehir bilgisi doğrulaması yapar. Bu işlem için **react-native-get-location** ve **Google Maps API** kullanılmaktadır.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## 📦 Kurulum
 
-### For Android
+Projeyi yerel ortamınıza kurmak için aşağıdaki adımları takip edebilirsiniz:
 
-```bash
-# using npm
-npm run android
+1. Bu projeyi klonlayın:
+    ```bash
+    git clone https://github.com/aysuyildizcaldiran/WeatherApp.git
+    cd WeatherApp
+    ```
 
-# OR using Yarn
-yarn android
-```
+2. Gerekli bağımlılıkları yükleyin:
+    ```bash
+    npm install
 
-### For iOS
+3. **WeatherAPI** anahtarınızı alın ve `theme` dosyanıza ekleyin:
+    ```plaintext
+    WEATHER_API_KEY=your_api_key_here
+    ```
+4. **GoogleMapsApı** anahtarınızı alın ve `theme` dosyanıza ekleyin:
+    ```plaintext
+    YOUR_GOOGLE_MAPS_API_KEY=your_api_key_here
+    ```
 
-```bash
-# using npm
-npm run ios
+5. Uygulamayı başlatın:
+    ```bash
+    npm run start
+    # veya
+    yarn start
+    ```
 
-# OR using Yarn
-yarn ios
-```
+## 📂 Proje Yapısı
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+    .
+    ├── src
+    │   ├── assets              # img yapıları
+    │   ├── components          # Bileşenler
+    │   ├── pages               # Ekranlar
+    │   ├── redux               # Redux Toolkit yapılandırmaları
+    └── App.tsx                 # Ana uygulama dosyası
+    └── README.md
