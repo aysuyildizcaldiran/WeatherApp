@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, Platform, StyleSheet } from "react-native";
 import { colors } from "../../theme";
 
 export const styles = StyleSheet.create({
@@ -30,6 +30,7 @@ export const styles = StyleSheet.create({
         width: '90%',
         marginHorizontal: '5%',
         borderRadius: 10,
+        marginTop:Platform.OS === 'ios' ? 0 : 20
     },
     imageBacground: {
         flex: 1

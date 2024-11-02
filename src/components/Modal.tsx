@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Modal, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Modal, Text, TextInput, Button, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { colors } from '../theme';
 
 interface Props {
@@ -12,9 +12,9 @@ interface Props {
     newCity: string;
     setNewCity: (value: string) => void;
     activeCity: boolean;
+    setActiveCity: (value: boolean) => void;
     setCity: (value: string) => void;
 }
-
 
 const ModalComponent: React.FC<Props> = ({
     visible,
@@ -26,17 +26,20 @@ const ModalComponent: React.FC<Props> = ({
     newCity,
     setNewCity,
     activeCity,
+    setActiveCity,
     setCity,
 }) => {
     const handleSave = () => {
         setVisible(false);
-        if (activeCity && newCity) {
-            setCityList([...cityList, newCity]);
-        } else if (!activeCity && name) {
-            setName(name);
+        if (activeCity && text) {
+            setCityList([...cityList, text]);
+        } else if (!activeCity && text) {
+            setName(text);
         }
+        setActiveCity(false);
+        setText('');
     };
-
+    const [text, setText] = React.useState('');
     return (
         <Modal
             animationType="slide"
@@ -44,22 +47,27 @@ const ModalComponent: React.FC<Props> = ({
             visible={visible}
             onRequestClose={() => setVisible(false)}
         >
-            <View style={styles.centeredView}>
-                <View style={styles.modalView}>
-                    <Text style={styles.modalText}>
-                        Enter Your {activeCity ? 'City' : 'Name'}
-                    </Text>
-                    <TextInput
-                        style={styles.input}
-                        placeholder={`Enter ${activeCity ? 'City' : 'Name'}`}
-                        onChangeText={text =>
-                            activeCity ? setNewCity(text) : setName(text)
-                        }
-                        value={activeCity ? newCity : name}
-                    />
-                    <Button title="Save" onPress={handleSave} color={colors.blue} />
+            {/* Dışarıya tıklamayı algılamak için */}
+            <TouchableWithoutFeedback onPress={() => {setVisible(false); setActiveCity(false)}}>
+                <View style={styles.centeredView}>
+                    <TouchableWithoutFeedback>
+                        <View style={styles.modalView}>
+                            <Text style={styles.modalText}>
+                                Enter Your {activeCity ? 'City' : 'Name'}
+                            </Text>
+                            <TextInput
+                                style={styles.input}
+                                placeholder={`Enter ${activeCity ? 'City' : 'Name'}`}
+                                onChangeText={text =>
+                                    setText(text)
+                                }
+                                value={text}
+                            />
+                            <Button title="Save" onPress={handleSave} color={colors.blue} />
+                        </View>
+                    </TouchableWithoutFeedback>
                 </View>
-            </View>
+            </TouchableWithoutFeedback>
         </Modal>
     );
 };
@@ -101,4 +109,3 @@ const styles = StyleSheet.create({
 });
 
 export default ModalComponent;
-

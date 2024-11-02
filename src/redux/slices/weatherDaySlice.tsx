@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { WEATHER_API_KEY } from "../../theme";
 
 export const getDays = createAsyncThunk(
     "weather/getDays",
@@ -8,7 +9,7 @@ export const getDays = createAsyncThunk(
         // console.log("GETCİTY",city)
         try {
             const response = await axios.get(
-                `https://api.weatherapi.com/v1/current.json?key=a3fbe1fec67b4a4dab2130608242910&q=${city}`
+                `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${city}`
             );
             // console.log(response.data);
             return response.data;  // Return the data instead of the full response

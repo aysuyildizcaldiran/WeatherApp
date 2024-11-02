@@ -15,12 +15,18 @@ const RenderWeather = ({ title }: { title?: string }) => {
             const response = await dispatch(getDays({ city: title }));
             setWeatherData(response.payload.current);
             if (response.payload.current) {
-                if (response.payload.current.condition.text === 'Sunny' || response.payload.current.condition.text === 'Clear') {
+                if (response.payload.current.condition.text === 'Sunny' || response.payload?.current.condition.text === 'Clear') {
                     setWeatherImage(require('../assets/img/sunny.png'));
                 } else if (response.payload.current.condition.text === 'Partly cloudy') {
                     setWeatherImage(require('../assets/img/partly_cloudy.png'));
                 } else if (response.payload.current.condition.text === 'Overcast') {
                     setWeatherImage(require('../assets/img/cloudy.png'));
+                }else if (response.payload.current.condition.text === 'Rain') {
+                    setWeatherImage(require('../assets/img/rainy.png'));
+                }else if (response.payload.current.condition.text === 'Snow') {
+                    setWeatherImage(require('../assets/img/snowy.png'));
+                }else if (response.payload.current.condition.text === 'Mist') {
+                    setWeatherImage(require('../assets/img/mist.png'));
                 }
             }
         };

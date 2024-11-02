@@ -10,6 +10,7 @@ import RenderWeatherView from '../../components/RenderWeatherView';
 import HeaderView from '../../components/HeaderView';
 import RenderTodayWeatherView from '../../components/RenderTodayWeatherView';
 import HeaderTabView from '../../components/HeaderTabView';
+import { colors } from '../../theme';
 const Home = () => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
@@ -55,7 +56,7 @@ const Home = () => {
     return (
         <View style={styles.container}>
             <SafeAreaView />
-            <StatusBar barStyle="dark-content" translucent />
+            <StatusBar barStyle="dark-content"  backgroundColor={colors.white}/>
             <HeaderTabView name={name} setVisible={setVisible} />
             <View style={styles.imageContainer}>
                 <ImageBackground
@@ -68,7 +69,7 @@ const Home = () => {
                       <RenderTodayWeatherView locationWeather={locationWeather} city={city} />
                     }
                 </ImageBackground>
-                <ModalComponent visible={visible} setVisible={setVisible} name={name} setName={setName} cityList={cityList} setCityList={setCityList} newCity={newCity} setNewCity={setNewCity} activeCity={activeCity} setCity={setCity} />          
+                <ModalComponent visible={visible} setVisible={setVisible} name={name} setName={setName} cityList={cityList} setCityList={setCityList} newCity={newCity} setNewCity={setNewCity} activeCity={activeCity} setActiveCity={setActiveCity} setCity={setCity} />          
             </View>
         </View>
     );

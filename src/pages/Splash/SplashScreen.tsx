@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, ImageBackground, StatusBar, Dimensions, TouchableOpacity, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { colors } from '../../theme';
 import { styles } from './SplashStyle';
 
 const SplashScreen = () => {
@@ -14,7 +13,7 @@ const SplashScreen = () => {
       source={require('../../assets/img/background.png')}
       style={styles.container}
     >
-      <StatusBar barStyle="light-content" translucent />
+      <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
       <SafeAreaView />
 
       <View style={styles.logoContainer}>
